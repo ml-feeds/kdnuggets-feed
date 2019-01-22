@@ -1,5 +1,5 @@
 from http.server import BaseHTTPRequestHandler
-import datetime, os, pathlib, platform, sys
+import datetime, os, pathlib, platform, sys, threading
 
 
 class handler(BaseHTTPRequestHandler):
@@ -11,6 +11,8 @@ class handler(BaseHTTPRequestHandler):
         executables = [
             'datetime.datetime.now()',
             'datetime.datetime.utcnow()',
+            'os.getlogin()',
+            'os.getpid()',
             'os.uname()',
             'pathlib.Path().resolve()',
             'platform.linux_distribution()',
@@ -18,6 +20,8 @@ class handler(BaseHTTPRequestHandler):
             'platform.platform()',
             'platform.uname()',
             'sys.version',
+            'threading.current_thread().name',
+            'threading.get_ident()',
         ]
         for executable in executables:
             message = f'{executable}\n{eval(executable)}\n\n'
