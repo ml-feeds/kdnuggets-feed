@@ -8,5 +8,5 @@ As a disclaimer, there is no affiliation of it with KDnuggets.
 * Unofficial filtered feed: https://kdnfeed.now.sh/
 
 ## Deployment
-Deployment is automated using https://zeit.co/.
-The files required for the automated deployment are [index.py](index.py), [now.json](now.json), and [requirements.txt](requirements.txt).
+Deployment from the `master` branch is automated using https://zeit.co/.
+The files required for this automated deployment are [index.py](index.py), [now.json](now.json), and [requirements.txt](requirements.txt).
