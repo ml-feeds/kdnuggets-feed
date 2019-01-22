@@ -15,5 +15,5 @@ class handler(BaseHTTPRequestHandler):
         ]
         for executable in executables:
             print(f'Evaluating {executable}')
-            message = f'{executable} = {eval(executable)}'
+            message = f'{executable} = {eval(executable)}\n'
             self.wfile.write(message.encode())

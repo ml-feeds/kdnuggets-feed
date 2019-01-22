@@ -1,4 +1,5 @@
 {
   "version": 2,
-  "builds": [{ "src": "*.py", "use": "@now/python" }]
+  "builds": [{ "src": "*.py", "use": "@now/python" }],
+  "alias": ["kdnfeed.now.sh"]
 }
