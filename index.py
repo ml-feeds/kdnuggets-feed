@@ -1,5 +1,5 @@
 from http.server import BaseHTTPRequestHandler
-import datetime, platform, sys
+import datetime, os, pathlib, platform, sys
 
 
 class handler(BaseHTTPRequestHandler):
@@ -11,9 +11,14 @@ class handler(BaseHTTPRequestHandler):
         executables = [
             'datetime.datetime.now()',
             'datetime.datetime.utcnow()',
+            'os.uname()',
+            'pathlib.Path().resolve()',
+            'platform.linux_distribution()',
+            'platform.node()',
+            'platform.platform()',
+            'platform.uname()',
             'sys.version',
         ]
         for executable in executables:
-            print(f'Evaluating {executable}')
-            message = f'{executable} = {eval(executable)}\n'
+            message = f'{executable}\n{eval(executable)}\n\n'
             self.wfile.write(message.encode())
