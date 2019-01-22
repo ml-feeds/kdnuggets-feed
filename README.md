@@ -5,7 +5,8 @@ As a disclaimer, there is no affiliation of it with KDnuggets.
 ## Links
 * Original unfiltered feed: https://www.kdnuggets.com/feed
 * Unofficial filtered feed: https://kdnfeed.now.sh/
-* Deployment project: https://zeit.co/dashboard/project/kdnfeed (requires authentication)
+* Project dashboard: https://zeit.co/dashboard/project/kdnfeed (requires authentication)
+* Pproject logs: https://kdnfeed.now.sh/_logs
 
 ## Deployment
 Deployment from the `master` branch is automated using https://zeit.co/.
