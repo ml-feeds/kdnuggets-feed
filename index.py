@@ -24,5 +24,8 @@ class handler(BaseHTTPRequestHandler):
             'threading.get_ident()',
         ]
         for executable in executables:
-            message = f'{executable}\n{eval(executable)}\n\n'
+            try:
+                message = f'{executable}\n{eval(executable)}\n\n'
+            except Exception as exc:
+                message = f'{executable}\n{exc}\n\n'
             self.wfile.write(message.encode())
