@@ -1,13 +1,19 @@
 from http.server import BaseHTTPRequestHandler
-from cowpy import cow
-import sys
+import datetime, platform, sys
+
 
 class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_response(200)
-        self.send_header('Content-type','text/plain')
+        self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        message = cow.Cowacter().milk('Hello from Python ' + str(sys.version))
-        self.wfile.write(message.encode())
-        return
+        executables = [
+            'datetime.datetime.now()',
+            'datetime.datetime.utcnow()',
+            'sys.version',
+        ]
+        for executable in executables:
+            print(f'Evaluating {executable}')
+            message = f'{executable} = {eval(executable)}'
+            self.wfile.write(message.encode())
