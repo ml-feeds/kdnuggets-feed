@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 
-from kdnfeed.feed import feed
+# from kdnfeed.feed import feed
+from feedgen.feed import FeedGenerator
 
 
 class handler(BaseHTTPRequestHandler):
