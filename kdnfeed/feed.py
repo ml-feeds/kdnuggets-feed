@@ -1,3 +1,4 @@
+import logging
 # from types import SimpleNamespace
 
 from feedgen.feed import FeedGenerator
@@ -7,9 +8,13 @@ import kdnfeed.config as config
 
 config.configure_logging()
 
+log = logging.getLogger(__name__)
+
 
 def feed() -> bytes:
+    log.debug('Initializing SyncPipe.')
     pipe = SyncPipe('fetch', conf={'url': config.INPUT_FEED_URL})
+    log.info('Initialized SyncPipe.')
 
     output_feed = FeedGenerator()
     output_feed.title(config.OUTPUT_FEED_TITLE)
@@ -27,8 +32,5 @@ def feed() -> bytes:
         feed_entry.published(pipe_entry.published)
 
     output = output_feed.rss_str(pretty=True)
+    log.info('Generated output of size %s bytes.', len(output))
     return output
-
-
-if __name__ == '__main__':
-    print(feed().decode())

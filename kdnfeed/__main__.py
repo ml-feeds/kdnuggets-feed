@@ -1,12 +1,10 @@
 import time
 
-from mypackage.config import configure_logging
-
-configure_logging()
+from kdnfeed.feed import feed
 
 if __name__ == '__main__':
     try:
-        pass
+        print(feed().decode())
     except Exception:
         time.sleep(.01)  # Delay for logs to flush.
         raise
