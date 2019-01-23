@@ -1,5 +1,5 @@
 {
   "version": 2,
-  "builds": [{ "src": "*.py", "use": "@now/python" }],
+  "builds": [{"src": "*.py", "use": "@now/python", "config": {"maxLambdaSize": "50mb"}}],
   "alias": ["kdnfeed.now.sh"]
 }
