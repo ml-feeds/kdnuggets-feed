@@ -3,9 +3,9 @@ from http.server import BaseHTTPRequestHandler
 # from kdnfeed.feed import feed
 # from feedgen.feed import FeedGenerator
 # from riko.collections import SyncPipe
-print('Importing lxml')
-import lxml
-print('Imported lxml')
+
+import requests
+import sys
 
 class handler(BaseHTTPRequestHandler):
 
@@ -14,4 +14,4 @@ class handler(BaseHTTPRequestHandler):
         # self.send_header('Content-type', 'text/xml; charset=UTF-8')
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write('asgg'.encode())
+        self.wfile.write(sys.version.encode())
