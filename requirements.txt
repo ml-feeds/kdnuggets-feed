@@ -1,2 +1,2 @@
-# feedgen==0.7.0
-riko==0.60.4
+feedgen==0.7.0
+#riko==0.60.4

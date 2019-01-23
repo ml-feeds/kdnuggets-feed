@@ -1,8 +1,8 @@
 from http.server import BaseHTTPRequestHandler
 
 # from kdnfeed.feed import feed
-# from feedgen.feed import FeedGenerator
-from riko.collections import SyncPipe
+from feedgen.feed import FeedGenerator
+# from riko.collections import SyncPipe
 
 class handler(BaseHTTPRequestHandler):
 
