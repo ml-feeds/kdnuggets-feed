@@ -10,4 +10,4 @@ class handler(BaseHTTPRequestHandler):
         # self.send_header('Content-type', 'text/xml; charset=UTF-8')
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write(feed())
+        self.wfile.write('asgg'.encode())
