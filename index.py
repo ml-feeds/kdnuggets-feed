@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 
-# from kdnfeed.feed import feed
+from kdnfeed.feed import feed
 
 
 class handler(BaseHTTPRequestHandler):
@@ -10,4 +10,4 @@ class handler(BaseHTTPRequestHandler):
         # self.send_header('Content-type', 'text/xml; charset=UTF-8')
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write('asdf'.encode())
+        self.wfile.write(feed())
