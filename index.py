@@ -1,10 +1,9 @@
 from http.server import BaseHTTPRequestHandler
 
 # from kdnfeed.feed import feed
-# from feedgen.feed import FeedGenerator
+from feedgen.feed import FeedGenerator
 # from riko.collections import SyncPipe
 
-import requests
 import sys
 
 class handler(BaseHTTPRequestHandler):
