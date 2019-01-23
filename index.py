@@ -1,8 +1,11 @@
 from http.server import BaseHTTPRequestHandler
 
 # from kdnfeed.feed import feed
-from feedgen.feed import FeedGenerator
+# from feedgen.feed import FeedGenerator
 # from riko.collections import SyncPipe
+print('Importing lxml')
+import lxml
+print('Imported lxml')
 
 class handler(BaseHTTPRequestHandler):
 
