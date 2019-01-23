@@ -1,31 +1,12 @@
 from http.server import BaseHTTPRequestHandler
-import datetime, os, pathlib, platform, sys, threading
+
+from kdnfeed.feed import feed
 
 
 class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
+        self.send_header('Content-type', 'application/rss+xml; charset=UTF-8')  # Alt value: text/xml; charset=UTF-8
         self.end_headers()
-        executables = [
-            'datetime.datetime.now()',
-            'datetime.datetime.utcnow()',
-            'os.getlogin()',
-            'os.getpid()',
-            'os.uname()',
-            'pathlib.Path().resolve()',
-            'platform.linux_distribution()',
-            'platform.node()',
-            'platform.platform()',
-            'platform.uname()',
-            'sys.version',
-            'threading.current_thread().name',
-            'threading.get_ident()',
-        ]
-        for executable in executables:
-            try:
-                message = f'{executable}\n{eval(executable)}\n\n'
-            except Exception as exc:
-                message = f'{executable}\n{exc}\n\n'
-            self.wfile.write(message.encode())
+        self.wfile.write(feed())
