@@ -7,6 +7,6 @@ class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.send_response(200)
-        self.send_header('Content-type', 'text/rss+xml; charset=UTF-8')  # Alt value: text/xml; charset=UTF-8
+        self.send_header('Content-type', 'text/xml; charset=UTF-8')
         self.end_headers()
         self.wfile.write(feed())
