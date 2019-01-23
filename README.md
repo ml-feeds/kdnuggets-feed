@@ -10,6 +10,7 @@ As a disclaimer, there is no affiliation of it with KDnuggets.
 * [Unofficial filtered feed](https://us-east1-kdnfeed.cloudfunctions.net/kdnfeed)
 
 ## Deployment
-Automated deployment to Google Cloud Functions requires the existence of the following files:
+Automated deployment to [Google Cloud Functions](https://console.cloud.google.com/functions/) requires the existence of
+the following files:
 * requirements.txt
 * main.py
