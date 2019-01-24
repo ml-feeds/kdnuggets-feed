@@ -10,6 +10,3 @@ def configure_logging() -> None:
 
 
 INPUT_FEED_URL = 'https://www.kdnuggets.com/feed'
-OUTPUT_FEED_DESCRIPTION = 'Filtered KDnuggets RSS feed (unofficial)'
-OUTPUT_FEED_LINK = 'https://www.kdnuggets.com'
-OUTPUT_FEED_TITLE = 'KDnuggets filtered (unofficial)'
