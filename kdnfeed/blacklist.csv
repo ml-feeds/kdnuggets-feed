@@ -1,27 +1,27 @@
 Field,Operator,Value
-link,contains,/jobs/
-title,startswith,Top Stories
-title,startswith,Predictive Analytics Times
-title,contains,Symposium
-title,startswith,KDnuggets™
-title,startswith,Top /r/MachineLearning Posts
-title,startswith,Cartoon:
-title,startswith,New Poll:
-title,startswith,Webinar:
-title,startswith,Podcast:
 category,eq,Certification
-category,eq,Courses
-title,startswith,KDnuggets
-title,startswith,Upcoming Meetings
-title,startswith,Predictive Analytics World
-category,eq,Meetings
-category,eq,Webinars
-category,eq,Top stories
-category,eq,Politics
 category,eq,Competition
-category,eq,Threat to Humanity
-title,startswith,KDD Cup
-category,eq,Top tweets
-title,contains,Conference
-category,eq,Religion
+category,eq,Courses
+category,eq,Meetings
+category,eq,Politics
 category,eq,Publishing
+category,eq,Religion
+category,eq,Threat to Humanity
+category,eq,Top stories
+category,eq,Top tweets
+category,eq,Webinars
+link,contains,/jobs/
+title,contains,Conference
+title,contains,Symposium
+title,startswith,Cartoon:
+title,startswith,KDD Cup
+title,startswith,KDnuggets
+title,startswith,KDnuggets™
+title,startswith,New Poll:
+title,startswith,Podcast:
+title,startswith,Predictive Analytics Times
+title,startswith,Predictive Analytics World
+title,startswith,Top /r/MachineLearning Posts
+title,startswith,Top Stories
+title,startswith,Upcoming Meetings
+title,startswith,Webinar:
