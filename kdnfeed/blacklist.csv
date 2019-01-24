@@ -1,21 +1,23 @@
 Field,Operator,Value
+category,contains,Courses
+category,contains,Webinars
+category,equals,Book
 category,equals,Certification
 category,equals,Competition
-category,equals,Courses
 category,equals,Meetings
 category,equals,Politics
+category,equals,Predictive Analytics World
 category,equals,Publishing
 category,equals,Religion
 category,equals,Threat to Humanity
 category,equals,Top stories
 category,equals,Top tweets
-category,equals,Webinars
 link,contains,/jobs/
+title,contains,Call for Research
 title,contains,Conference
 title,contains,Symposium
 title,startswith,Cartoon:
 title,startswith,KDD Cup
-title,startswith,KDnuggets
 title,startswith,KDnuggets™
 title,startswith,New Poll:
 title,startswith,Podcast:
