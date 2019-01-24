@@ -17,7 +17,7 @@ BLACKLIST = pd.read_csv(BLACKLIST_PATH)
 INPUT_FEED_URL = 'https://www.kdnuggets.com/feed'
 OPERATORS = {
     'contains': operator.contains,
-    'eq': operator.eq,
+    'equals': operator.eq,
     'endswith': str.endswith,
     'startswith': str.startswith,
 }

@@ -1,15 +1,15 @@
 Field,Operator,Value
-category,eq,Certification
-category,eq,Competition
-category,eq,Courses
-category,eq,Meetings
-category,eq,Politics
-category,eq,Publishing
-category,eq,Religion
-category,eq,Threat to Humanity
-category,eq,Top stories
-category,eq,Top tweets
-category,eq,Webinars
+category,equals,Certification
+category,equals,Competition
+category,equals,Courses
+category,equals,Meetings
+category,equals,Politics
+category,equals,Publishing
+category,equals,Religion
+category,equals,Threat to Humanity
+category,equals,Top stories
+category,equals,Top tweets
+category,equals,Webinars
 link,contains,/jobs/
 title,contains,Conference
 title,contains,Symposium
