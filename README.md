@@ -4,10 +4,13 @@ As a disclaimer, there is no affiliation of it with KDnuggets.
 
 ## Links
 * [Project repo](https://github.com/impredicative/kdnfeed)
-* [Project repo (deployment mirror)](https://source.cloud.google.com/kdnfeed/github_impredicative_kdnfeed) (requires access)
-* [Project dashboard](https://console.cloud.google.com/functions/details/us-east1/kdnfeed?project=kdnfeed) (requires access)
+* [Project repo (deployment mirror)](https://source.cloud.google.com/kdnfeed/github_impredicative_kdnfeed) †
+* [Project dashboard](https://console.cloud.google.com/home/dashboard?project=kdnfeed) †
+* [Function dashboard](https://console.cloud.google.com/functions/details/us-east1/kdnfeed?project=kdnfeed) †
 * [Original unfiltered feed](https://www.kdnuggets.com/feed)
 * [Unofficial filtered feed](https://us-east1-kdnfeed.cloudfunctions.net/kdnfeed)
+
+† *(requires access)*
 
 ## Deployment
 Deployment to [Google Cloud Functions](https://console.cloud.google.com/functions/) is configured.
