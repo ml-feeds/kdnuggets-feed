@@ -1,7 +1,7 @@
 import logging
-import random   # TODO: Remove after actual filters are implemented.
 import urllib.request
-import xml.etree.ElementTree as ET
+from typing import Union
+from xml.etree import ElementTree
 
 from kdnfeed import config
 
@@ -10,16 +10,42 @@ config.configure_logging()
 log = logging.getLogger(__name__)
 
 
+def _is_blacklisted(item: ElementTree.Element) -> Union[tuple, bool]:
+    item = {'title': item.findtext('title'),
+            'link': item.findtext('link'),
+            'category': [c.text for c in item.findall('category')],
+            }
+    for filter_tuple in config.BLACKLIST.itertuples(index=False, name='Filter'):
+        operator = config.OPERATORS[filter_tuple.Operator]
+        actual_value = item[filter_tuple.Field]
+        compared_value = filter_tuple.Value
+        if filter_tuple.Field == 'category':
+            for actual_individual_category in actual_value:
+                if operator(actual_individual_category, compared_value):
+                    return filter_tuple
+        else:
+            if operator(actual_value, compared_value):
+                return filter_tuple
+    return False
+
+
 def feed() -> bytes:
     log.debug('Reading input feed.')
     text = urllib.request.urlopen(config.INPUT_FEED_URL).read()
-    xml = ET.fromstring(text)
+    xml = ElementTree.fromstring(text)
     log.info('Received input feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
 
     channel = next(xml.iter('channel'))
     for item in channel.iter('item'):
-        if random.getrandbits(1):
+        title = item.findtext('title')
+        filter_status = _is_blacklisted(item)
+        if filter_status:
             channel.remove(item)
-    text = ET.tostring(xml)
+            log.debug('Removed item per %s filter %s "%s": %s',
+                      filter_status.Field, filter_status.Operator, filter_status.Value, title)
+        else:
+            log.debug('Approved item "%s" having categories: %s',
+                      title, ', '.join(c.text for c in item.findall('category')))
+    text = ElementTree.tostring(xml)
     log.info('Generated output feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
     return text
