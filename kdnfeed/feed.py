@@ -18,13 +18,13 @@ def _is_blacklisted(item: ElementTree.Element) -> Union[tuple, bool]:
     for filter_tuple in config.BLACKLIST.itertuples(index=False, name='Filter'):
         operator = config.OPERATORS[filter_tuple.Operator]
         actual_value = item[filter_tuple.Field]
-        compared_value = filter_tuple.Value.lower()
+        blacklisted_value = filter_tuple.Value.lower()
         if filter_tuple.Field == 'category':
             for actual_individual_category in actual_value:
-                if operator(actual_individual_category, compared_value):
+                if operator(actual_individual_category, blacklisted_value):
                     return filter_tuple
         else:
-            if operator(actual_value, compared_value):
+            if operator(actual_value, blacklisted_value):
                 return filter_tuple
     return False
 
