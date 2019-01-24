@@ -1,4 +1,5 @@
 import logging
+import os
 import urllib.request
 from typing import Union
 from xml.etree import ElementTree
@@ -12,6 +13,7 @@ log = logging.getLogger(__name__)
 
 class Feed:
     def __init__(self):
+        self._on_gcloud = bool(os.getenv('GCLOUD_PROJECT'))
         self._blacklist = config.BLACKLIST.copy()
         self._blacklist['Value'] = self._blacklist['Value'].str.lower()  # For case-insensitive comparison.
 
@@ -39,6 +41,7 @@ class Feed:
         xml = ElementTree.fromstring(text)
         log.info('Received input feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
 
+        not_on_gcloud = not self._on_gcloud
         channel = next(xml.iter('channel'))
         for item in list(channel.iter('item')):  # https://stackoverflow.com/a/19419905/
             title = item.findtext('title')
@@ -46,11 +49,15 @@ class Feed:
             filter_status = self._is_blacklisted(item)
             if filter_status:
                 channel.remove(item)
-                log.debug('❌ Removed %s "%s" as its %s %s "%s".\n',
-                          guid, title, filter_status.Field, filter_status.Operator, filter_status.Value)
-            else:
-                log.debug('✅ Approved %s "%s" having categories: %s\n',
-                          guid, title, ', '.join(c.text for c in item.findall('category')))
+
+            if not_on_gcloud:
+                if filter_status:
+                    log.info('❌ Removed %s "%s" as its %s %s "%s".\n',
+                              guid, title, filter_status.Field, filter_status.Operator, filter_status.Value)
+                else:
+                    log.info('✅ Approved %s "%s" having categories: %s\n',
+                              guid, title, ', '.join(c.text for c in item.findall('category')))
+
         text = ElementTree.tostring(xml)
         log.info('Generated output feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
         return text
