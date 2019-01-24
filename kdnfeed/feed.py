@@ -18,13 +18,13 @@ def _is_blacklisted(item: ElementTree.Element) -> Union[tuple, bool]:
     for filter_tuple in config.BLACKLIST.itertuples(index=False, name='Filter'):
         operator = config.OPERATORS[filter_tuple.Operator]
         actual_value = item[filter_tuple.Field]
-        compared_value = filter_tuple.Value
+        compared_value = filter_tuple.Value.lower()
         if filter_tuple.Field == 'category':
             for actual_individual_category in actual_value:
-                if operator(actual_individual_category, compared_value):
+                if operator(actual_individual_category.lower(), compared_value):
                     return filter_tuple
         else:
-            if operator(actual_value, compared_value):
+            if operator(actual_value.lower(), compared_value):
                 return filter_tuple
     return False
 
@@ -38,14 +38,15 @@ def feed() -> bytes:
     channel = next(xml.iter('channel'))
     for item in channel.iter('item'):
         title = item.findtext('title')
+        guid = item.findtext('guid')
         filter_status = _is_blacklisted(item)
         if filter_status:
             channel.remove(item)
-            log.debug('Removed item per %s filter %s "%s": %s',
-                      filter_status.Field, filter_status.Operator, filter_status.Value, title)
+            log.debug('❌ Removed %s "%s" as its %s %s "%s".\n',
+                      guid, title, filter_status.Field, filter_status.Operator, filter_status.Value)
         else:
-            log.debug('Approved item "%s" having categories: %s',
-                      title, ', '.join(c.text for c in item.findall('category')))
+            log.debug('✅ Approved %s "%s" having categories: %s\n',
+                      guid, title, ', '.join(c.text for c in item.findall('category')))
     text = ElementTree.tostring(xml)
     log.info('Generated output feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
     return text
