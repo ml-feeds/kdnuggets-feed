@@ -1,4 +1,5 @@
 import logging
+import random   # TODO: Remove after actual filters are implemented.
 import urllib.request
 import xml.etree.ElementTree as ET
 
@@ -11,13 +12,14 @@ log = logging.getLogger(__name__)
 
 def feed() -> bytes:
     log.debug('Reading input feed.')
-    xml = urllib.request.urlopen(config.INPUT_FEED_URL).read()
-    log.info('Read input feed of size %s bytes.', len(xml))
+    text = urllib.request.urlopen(config.INPUT_FEED_URL).read()
+    xml = ET.fromstring(text)
+    log.info('Received input feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
 
-    xml = ET.fromstring(xml)
     channel = next(xml.iter('channel'))
     for item in channel.iter('item'):
-        pass
-    xml = ET.tostring(xml)
-    log.info('Generated output feed of size %s bytes.', len(xml))
-    return xml
+        if random.getrandbits(1):
+            channel.remove(item)
+    text = ET.tostring(xml)
+    log.info('Generated output feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
+    return text
