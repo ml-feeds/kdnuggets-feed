@@ -15,6 +15,6 @@ It requires the the following files:
 
 Deployment version updates are performed manually, such as by editing and saving the function configuration.
 
-These deployment links require access.
-* [Function repo](https://source.cloud.google.com/ml-feeds/github_impredicative_kdnfeed)
+These deployment links require access:
 * [Function dashboard](https://console.cloud.google.com/functions/details/us-east1/kdnuggets?project=ml-feeds)
+* [Function repo](https://source.cloud.google.com/ml-feeds/github_impredicative_kdnfeed)
