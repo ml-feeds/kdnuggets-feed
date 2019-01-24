@@ -1,8 +1,11 @@
 import logging
 import os
+import time
 import urllib.request
 from typing import Union
 from xml.etree import ElementTree
+
+import cachetools.func
 
 from kdnfeed import config
 
@@ -35,6 +38,7 @@ class Feed:
                     return filter_tuple
         return False
 
+    @cachetools.func.ttl_cache(maxsize=1, ttl=config.CACHE_TTL, timer=time.monotonic)
     def feed(self) -> bytes:
         log.debug('Reading input feed.')
         text = urllib.request.urlopen(config.INPUT_FEED_URL).read()
