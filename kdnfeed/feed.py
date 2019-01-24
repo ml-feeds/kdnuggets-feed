@@ -11,9 +11,9 @@ log = logging.getLogger(__name__)
 
 
 def _is_blacklisted(item: ElementTree.Element) -> Union[tuple, bool]:
-    item = {'title': item.findtext('title'),
-            'link': item.findtext('link'),
-            'category': [c.text for c in item.findall('category')],
+    item = {'title': item.findtext('title').lower(),
+            'link': item.findtext('link').lower(),
+            'category': [c.text.lower() for c in item.findall('category')],
             }
     for filter_tuple in config.BLACKLIST.itertuples(index=False, name='Filter'):
         operator = config.OPERATORS[filter_tuple.Operator]
@@ -21,10 +21,10 @@ def _is_blacklisted(item: ElementTree.Element) -> Union[tuple, bool]:
         compared_value = filter_tuple.Value.lower()
         if filter_tuple.Field == 'category':
             for actual_individual_category in actual_value:
-                if operator(actual_individual_category.lower(), compared_value):
+                if operator(actual_individual_category, compared_value):
                     return filter_tuple
         else:
-            if operator(actual_value.lower(), compared_value):
+            if operator(actual_value, compared_value):
                 return filter_tuple
     return False
 
