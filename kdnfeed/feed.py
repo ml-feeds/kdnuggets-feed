@@ -36,7 +36,8 @@ def feed() -> bytes:
     log.info('Received input feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
 
     channel = next(xml.iter('channel'))
-    for item in channel.iter('item'):
+    items = list(channel.iter('item'))  # It's important to use a list, so as to not incorrectly modify when iterating.
+    for item in items:
         title = item.findtext('title')
         guid = item.findtext('guid')
         filter_status = _is_blacklisted(item)
