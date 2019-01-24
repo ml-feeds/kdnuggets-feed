@@ -3,7 +3,7 @@ import random   # TODO: Remove after actual filters are implemented.
 import urllib.request
 import xml.etree.ElementTree as ET
 
-import kdnfeed.config as config
+from kdnfeed import config
 
 config.configure_logging()
 
