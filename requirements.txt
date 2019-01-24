@@ -5,13 +5,8 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 click==7.0                # via flask
-feedgen==0.7.0
-feedparser==5.2.1
 flask==1.0.2
 itsdangerous==1.1.0       # via flask
 jinja2==2.10              # via flask
-lxml==4.3.0               # via feedgen
 markupsafe==1.1.0         # via jinja2
-python-dateutil==2.7.5    # via feedgen
-six==1.12.0               # via python-dateutil
 werkzeug==0.14.1          # via flask
