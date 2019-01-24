@@ -13,7 +13,8 @@ It requires the the following files:
 * requirements.txt
 * main.py (having callable `serve(request: flask.Request) -> Tuple[bytes, int, Dict[str, str]]`)
 
-Deployment version updates are performed manually, such as by editing and saving the function configuration.
+Deployment version updates are not automated.
+They can be performed manually by editing and saving the function configuration.
 
 These deployment links require access:
 * [Function dashboard](https://console.cloud.google.com/functions/details/us-east1/kdnuggets?project=ml-feeds)
