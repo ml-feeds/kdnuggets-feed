@@ -10,7 +10,9 @@ As a disclaimer, there is no affiliation of it with KDnuggets.
 * [Unofficial filtered feed](https://us-east1-kdnfeed.cloudfunctions.net/kdnfeed)
 
 ## Deployment
-Automated deployment to [Google Cloud Functions](https://console.cloud.google.com/functions/) requires the existence of
-the following files:
+Deployment to [Google Cloud Functions](https://console.cloud.google.com/functions/) is configured.
+It requires the existence of the following files:
 * requirements.txt
-* main.py
+* main.py (having callable `serve(request: flask.Request) -> bytes`)
+
+Deployment version updates are performed manually, such as by editing and saving the function configuration.
