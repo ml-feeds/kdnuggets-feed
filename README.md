@@ -1,6 +1,6 @@
 # kdnfeed
-This serves a filtered RSS feed for [KDnuggets](https://www.kdnuggets.com/).
-As a disclaimer, there is no affiliation of it with KDnuggets.
+`kdnfeed` serves a filtered RSS feed for [KDnuggets](https://www.kdnuggets.com/).
+As a disclaimer, it has no affiliation with KDnuggets.
 
 ## Links
 * [Project repo](https://github.com/impredicative/kdnfeed)
