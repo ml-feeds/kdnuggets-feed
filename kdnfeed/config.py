@@ -14,7 +14,7 @@ def configure_logging() -> None:
 
 BLACKLIST_PATH = Path(__file__).with_name('blacklist.csv')
 BLACKLIST = pd.read_csv(BLACKLIST_PATH)
-CACHE_TTL = 2 * 60
+CACHE_TTL = 3 * 60
 INPUT_FEED_URL = 'https://www.kdnuggets.com/feed'
 OPERATORS = {
     'contains': operator.contains,
