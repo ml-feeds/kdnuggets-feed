@@ -7,6 +7,7 @@
 cachetools==3.0.0
 click==7.0                # via flask
 flask==1.0.2
+humanize==0.5.1
 itsdangerous==1.1.0       # via flask
 jinja2==2.10              # via flask
 markupsafe==1.1.0         # via jinja2

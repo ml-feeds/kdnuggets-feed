@@ -11,9 +11,9 @@ if __name__ == '__main__':
         output = feed.feed()
         print(output.decode())
 
-        log.info('Testing cache.')
+        log.info('Testing cachetools cache.')
         assert feed.feed() == output
-        log.info('Tested cache.')
+        log.info('Tested cachetools cache.')
     except Exception:
         time.sleep(.01)  # Delay for logs to flush.
         raise

@@ -1,11 +1,13 @@
+from functools import lru_cache
 import logging
 import os
 import time
-import urllib.request
+from urllib.request import urlopen
 from typing import Union
 from xml.etree import ElementTree
 
-import cachetools.func
+from cachetools.func import ttl_cache
+from humanize import naturalsize
 
 from kdnfeed import config
 
@@ -38,12 +40,10 @@ class Feed:
                     return filter_tuple
         return False
 
-    @cachetools.func.ttl_cache(maxsize=1, ttl=config.CACHE_TTL, timer=time.monotonic)
-    def feed(self) -> bytes:
-        log.debug('Reading input feed.')
-        text = urllib.request.urlopen(config.INPUT_FEED_URL).read()
+    @lru_cache(maxsize=1)
+    def _output(self, text: str) -> str:
         xml = ElementTree.fromstring(text)
-        log.info('Received input feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
+        log.info('Input feed has %s items.', len(xml.findall('./channel/item')))
 
         not_on_gcloud = not self._on_gcloud
         channel = next(xml.iter('channel'))
@@ -53,7 +53,6 @@ class Feed:
             filter_status = self._is_blacklisted(item)
             if filter_status:
                 channel.remove(item)
-
             if not_on_gcloud:
                 if filter_status:
                     log.info('❌ Removed %s "%s" as its %s %s "%s".\n',
@@ -62,6 +61,19 @@ class Feed:
                     log.info('✅ Approved %s "%s" having categories: %s\n',
                               guid, title, ', '.join(c.text for c in item.findall('category')))  # type: ignore
 
+        log.info('Output feed has %s items.', len(xml.findall('./channel/item')))
         text = ElementTree.tostring(xml)
-        log.info('Generated output feed of size %s bytes with %s items.', len(text), len(xml.findall('./channel/item')))
         return text
+
+    @ttl_cache(maxsize=1, ttl=config.CACHE_TTL, timer=time.monotonic)
+    def feed(self) -> bytes:
+        log.debug('Reading input feed.')
+        text = urlopen(config.INPUT_FEED_URL).read()
+        log.info('Input feed has size %s.', humanize_len(text))
+        text = self._output(text)
+        log.info('Output feed has size %s.', humanize_len(text))
+        return text
+
+
+def humanize_len(text: str) -> str:
+    return naturalsize(len(text), gnu=True, format='%.0f')
