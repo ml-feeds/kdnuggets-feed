@@ -1,11 +1,11 @@
 # kdnfeed
-*kdnfeed* uses Python 3.7 to serve a filtered RSS feed for [KDnuggets](https://www.kdnuggets.com/).
+**kdnfeed** uses Python 3.7 to serve a filtered RSS feed for [KDnuggets](https://www.kdnuggets.com/).
 As a disclaimer, it has no affiliation with KDnuggets.
 
 ## Links
 * [Project repo](https://github.com/impredicative/kdnfeed)
 * [Original unfiltered feed](https://www.kdnuggets.com/feed)
-* [Unofficial filtered feed](https://us-east1-ml-feeds.cloudfunctions.net/kdnuggets)
+* [**Unofficial filtered feed**](https://us-east1-ml-feeds.cloudfunctions.net/kdnuggets)
 
 ## Deployment
 Serverless deployment to [Google Cloud Functions](https://console.cloud.google.com/functions/) is configured.
