@@ -40,7 +40,7 @@ class Feed:
         return False
 
     @lru_cache(maxsize=1)
-    def _output(self, text: str) -> str:
+    def _output(self, text: str) -> bytes:
         xml = ElementTree.fromstring(text)
         log.info('Input feed has %s items.', len(xml.findall('./channel/item')))
 
@@ -61,8 +61,8 @@ class Feed:
                               guid, title, ', '.join(c.text for c in item.findall('category')))  # type: ignore
 
         log.info('Output feed has %s items.', len(xml.findall('./channel/item')))
-        text = ElementTree.tostring(xml)
-        return text
+        text_: bytes = ElementTree.tostring(xml)
+        return text_
 
     @ttl_cache(maxsize=1, ttl=config.CACHE_TTL, timer=time.monotonic)
     def feed(self) -> bytes:
@@ -74,5 +74,5 @@ class Feed:
         return text
 
 
-def humanize_len(text: str) -> str:
+def humanize_len(text: bytes) -> str:
     return naturalsize(len(text), gnu=True, format='%.0f')
