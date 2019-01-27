@@ -46,7 +46,7 @@ LOGGING = {  # Ref: https://docs.python.org/3/howto/logging.html#configuring-log
             'handlers': ['console'],
             'propagate': False,
         },
-        'root': {
+        '': {
             'level': 'DEBUG',
             'handlers': ['console'],
          },
