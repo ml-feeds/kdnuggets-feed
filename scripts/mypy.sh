@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mypy -m kdnfeed.feed
+mypy -m kdnuggets.feed

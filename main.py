@@ -3,7 +3,7 @@ from typing import Dict, Tuple
 
 import flask
 
-from kdnfeed.feed import Feed
+from kdnuggets.feed import Feed
 
 log = logging.getLogger(__name__)
 feed = Feed()

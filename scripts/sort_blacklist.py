@@ -1,6 +1,6 @@
 import logging
 
-from kdnfeed import config
+from kdnuggets import config
 
 config.configure_logging()
 

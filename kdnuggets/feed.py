@@ -8,7 +8,7 @@ from xml.etree import ElementTree
 from cachetools.func import ttl_cache
 from humanize import naturalsize
 
-from kdnfeed import config
+from kdnuggets import config
 
 config.configure_logging()
 

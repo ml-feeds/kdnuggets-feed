@@ -1,7 +1,7 @@
 import logging
 import time
 
-from kdnfeed.feed import Feed
+from kdnuggets.feed import Feed
 
 log = logging.getLogger(__name__)
 
