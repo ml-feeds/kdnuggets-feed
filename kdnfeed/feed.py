@@ -46,6 +46,10 @@ class Feed:
 
         is_debug_logged = self._is_debug_logged
         channel = next(xml.iter('channel'))
+
+        channel_title = channel.find('title')
+        channel_title.text = f'{channel_title.text} (unofficial)'
+
         for item in list(channel.iter('item')):  # https://stackoverflow.com/a/19419905/
             title = item.findtext('title')
             guid = item.findtext('guid')
