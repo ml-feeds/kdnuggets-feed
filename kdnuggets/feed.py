@@ -47,8 +47,8 @@ class Feed:
         is_debug_logged = self._is_debug_logged
         channel = next(xml.iter('channel'))
 
-        channel_title = channel.find('title')
-        channel_title.text = f'{channel_title.text}{config.TITLE_SUFFIX}'  # type: ignore
+        channel.find('title').text += config.FEED_TITLE_SUFFIX  # type: ignore
+        channel.find('description').text += config.FEED_DESCRIPTION_SUFFIX  # type: ignore
 
         for item in list(channel.iter('item')):  # https://stackoverflow.com/a/19419905/
             title = item.findtext('title')
