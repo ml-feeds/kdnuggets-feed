@@ -1,3 +1,4 @@
+import datetime
 import logging.config
 import os
 from pathlib import Path
@@ -14,7 +15,7 @@ def configure_logging() -> None:
 
 BLACKLIST_PATH = Path(__file__).with_name('blacklist.csv')
 BLACKLIST = pd.read_csv(BLACKLIST_PATH)
-CACHE_TTL = 14 * 60
+CACHE_TTL = datetime.timedelta(minutes=58).total_seconds()
 FEED_DESCRIPTION_SUFFIX = '. As a disclaimer, this is an unofficial feed and has no affiliation with KDnuggets.'
 FEED_TITLE_SUFFIX = ' (unofficial)'
 INPUT_FEED_URL = 'https://www.kdnuggets.com/feed'
