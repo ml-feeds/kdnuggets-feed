@@ -19,4 +19,4 @@ They can be performed manually by editing and saving the function configuration.
 These deployment links require access:
 * [Dashboard](https://console.cloud.google.com/functions/details/us-east1/kdnuggets?project=ml-feeds)
 * [Logs](https://console.cloud.google.com/logs?service=cloudfunctions.googleapis.com&key1=kdnuggets&key2=us-east1&project=ml-feeds)
-* [Repo](https://source.cloud.google.com/ml-feeds/github_impredicative_kdnfeed)
+* [Repo](https://source.cloud.google.com/ml-feeds/github_ml-feeds_kdnuggets-feed)
