@@ -3,7 +3,7 @@
 As a disclaimer, it has no affiliation with KDnuggets.
 
 ## Links
-* [Project repo](https://github.com/impredicative/kdnfeed)
+* [Project repo](https://github.com/ml-feeds/kdnuggets)
 * [Original unfiltered feed](https://www.kdnuggets.com/feed)
 * [**Unofficial filtered feed**](https://us-east1-ml-feeds.cloudfunctions.net/kdnuggets)
 
