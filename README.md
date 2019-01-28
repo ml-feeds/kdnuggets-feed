@@ -1,5 +1,5 @@
 # kdnuggets-feed
-**kdnuggets-feed** uses Python 3.7 to serve a filtered RSS feed for [KDnuggets](https://www.kdnuggets.com/).
+**kdnuggets-feed** uses Python 3.7 to serve a filtered RSS feed for KDnuggets.
 As a disclaimer, it has no affiliation with KDnuggets.
 
 ## Links
