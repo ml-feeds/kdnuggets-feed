@@ -48,7 +48,7 @@ class Feed:
         channel = next(xml.iter('channel'))
 
         channel_title = channel.find('title')
-        channel_title.text = f'{channel_title.text} (unofficial)'
+        channel_title.text = f'{channel_title.text}{config.TITLE_SUFFIX}'
 
         for item in list(channel.iter('item')):  # https://stackoverflow.com/a/19419905/
             title = item.findtext('title')
