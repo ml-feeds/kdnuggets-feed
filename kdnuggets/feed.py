@@ -1,6 +1,5 @@
 from functools import lru_cache
 import logging
-import time
 from urllib.request import urlopen
 from typing import Union
 from xml.etree import ElementTree
@@ -68,7 +67,7 @@ class Feed:
         text_: bytes = ElementTree.tostring(xml)
         return text_
 
-    @ttl_cache(maxsize=1, ttl=config.CACHE_TTL, timer=time.monotonic)
+    @ttl_cache(maxsize=1, ttl=config.CACHE_TTL)
     def feed(self) -> bytes:
         log.debug('Reading input feed.')
         text = urlopen(config.INPUT_FEED_URL).read()

@@ -1,4 +1,4 @@
-cachetools==3.0.0
+cachetools==3.1.0
 flask==1.0.2
 humanize==0.5.1
 pandas==0.24.0
