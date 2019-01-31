@@ -1,10 +1,10 @@
 Field,Operator,Value
 category,contains,Courses
+category,contains,Meetings
 category,contains,Webinars
 category,equals,Book
 category,equals,Certification
 category,equals,Competition
-category,equals,Meetings
 category,equals,Politics
 category,equals,Predictive Analytics World
 category,equals,Publishing
