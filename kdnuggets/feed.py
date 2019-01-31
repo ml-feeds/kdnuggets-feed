@@ -5,9 +5,9 @@ from typing import Union
 from xml.etree import ElementTree
 
 from cachetools.func import ttl_cache
-from humanize import naturalsize
 
 from kdnuggets import config
+from kdnuggets.util.humanize import humanize_len
 
 config.configure_logging()
 
@@ -75,7 +75,3 @@ class Feed:
         text = self._output(text)
         log.info('Output feed has size %s.', humanize_len(text))
         return text
-
-
-def humanize_len(text: bytes) -> str:
-    return naturalsize(len(text), gnu=True, format='%.0f')
