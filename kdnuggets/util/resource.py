@@ -34,7 +34,7 @@ class MemUse:
         return humanize_bytes(self._current_use - self._initial_use)
 
     def log_use(self) -> None:
-        log.info('Total memory use is %s and delta use since original is %s.',
+        log.info('Current memory use is %s and delta use since original is %s.',
                  self.current_use_humanized, self.delta_use_humanized)
 
 
