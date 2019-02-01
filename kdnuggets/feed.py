@@ -46,6 +46,7 @@ class Feed:
         is_debug_logged = self._is_debug_logged
         channel = next(xml.iter('channel'))
 
+        channel.find('link').text = config.REPO_URL  # type: ignore
         channel.find('title').text += config.FEED_TITLE_SUFFIX  # type: ignore
         channel.find('description').text += config.FEED_DESCRIPTION_SUFFIX  # type: ignore
 
