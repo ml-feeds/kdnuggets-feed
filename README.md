@@ -9,7 +9,7 @@ As a disclaimer, it has no affiliation with KDnuggets.
 
 ## Deployment
 Serverless deployment to [Google Cloud Functions](https://console.cloud.google.com/functions/) is configured.
-It requires the the following files:
+It requires the following files:
 * requirements.txt
 * main.py (having callable `serve(request: flask.Request) -> Tuple[bytes, int, Dict[str, str]]`)
 
