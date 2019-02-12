@@ -20,6 +20,7 @@ title,contains,Call for Research
 title,contains,Conference
 title,contains,Symposium
 title,startswith,Cartoon:
+title,startswith,Free
 title,startswith,KDD Cup
 title,startswith,KDnuggets™
 title,startswith,New Poll:
