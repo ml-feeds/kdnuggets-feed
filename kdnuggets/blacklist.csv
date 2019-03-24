@@ -5,7 +5,12 @@ category,contains,Webinars
 category,equals,Book
 category,equals,Certification
 category,equals,Competition
+category,equals,Data Science Platform
 category,equals,Datalogics
+category,equals,ebook
+category,equals,Fellowship
+category,equals,Free ebook
+category,equals,Jobs
 category,equals,Politics
 category,equals,Predictive Analytics World
 category,equals,Publishing
@@ -15,10 +20,12 @@ category,equals,Threat to Humanity
 category,equals,Top stories
 category,equals,Top tweets
 category,equals,Training
+category,equals,Women
 link,contains,/jobs/
 title,contains,Call for Research
 title,contains,Conference
 title,contains,Symposium
+title,contains,your business
 title,startswith,Cartoon:
 title,startswith,Free
 title,startswith,KDD Cup
