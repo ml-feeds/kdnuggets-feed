@@ -2,4 +2,4 @@ cachetools==3.1.0
 Dickens==1.0.1
 flask==1.0.2
 humanize==0.5.1
-pandas==0.24.0
+pandas==0.24.2
