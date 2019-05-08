@@ -28,6 +28,7 @@ title,contains,Conference
 title,contains,KDnuggets Poll:
 title,contains,Symposium
 title,contains,your business
+title,startswith,[White Paper]
 title,startswith,Cartoon:
 title,startswith,Free
 title,startswith,KDD Cup
