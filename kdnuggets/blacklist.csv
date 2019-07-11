@@ -2,6 +2,7 @@ Field,Operator,Value
 category,contains,Courses
 category,contains,Meetings
 category,contains,Webinars
+category,equals,ActiveState
 category,equals,Book
 category,equals,Certification
 category,equals,Competition
